@@ -20,6 +20,11 @@ if(cluster.isMaster){
     http.createServer((req,res) => {
         res.write('<h1>Success</h1>');
         res.end('<p>server...</p>');
+
+        setTimeout(() => {
+            process.exit(1);
+        },500);
+
     }).listen(8085);
     console.log(`${process.pid}번 워커 실행`);
 }
